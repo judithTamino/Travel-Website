@@ -10,321 +10,376 @@
   /*========== font & typography ==========*/
   --body-font: 'Poppins', sans-serif;
   --second-font: 'Montserrat', sans-serif;
-  --biggest-font-size: 2.75rem; /* 44px */
-  --h1-font-size: 1.5rem; /* 24px */
-  --h2-font-size: 1.25rem; /* 20px */
-  --h3-font-size: 1rem; /* 16px */
-  --normal-font-size: .938rem; /* 15px */
-  --small-font-size: .813rem; /* 13px */
-  --smaller-font-size: .75rem; /* 12px */
+  --biggest-font-size: 2.75rem;
+  /* 44px */
+  --h1-font-size: 1.5rem;
+  /* 24px */
+  --h2-font-size: 1.25rem;
+  /* 20px */
+  --h3-font-size: 1rem;
+  /* 16px */
+  --normal-font-size: .938rem;
+  /* 15px */
+  --small-font-size: .813rem;
+  /* 13px */
+  --smaller-font-size: .75rem;
+  /* 12px */
   /*========== font weight ==========*/
   --font-regular: 400;
   --font-medium: 500;
   --font-semi-bold: 600;
   /*========== z index ==========*/
   --z-tooltip: 10;
-  --z-fixed: 100; 
+  --z-fixed: 100;
 }
 
-  /*========== responsive typography  ==========*/
-  @media screen and (min-width: 1152px) {
-    :root {
-      --body-font: 'Poppins', sans-serif;
-      --seconf-font: 'Montserrat', sans-serif;
-      --biggest-font-size: 5.5rem; /* 88px */
-      --h1-font-size: 2.5rem; /* 40px */
-      --h2-font-size: 1.5rem; /* 24px */
-      --h3-font-size: 1.25rem; /* 20px */
-      --normal-font-size: 1rem; /* 16px */
-      --small-font-size: .875rem; /* 14px */
-      --smaller-font-size: .813rem; /* 13px */
-    }
+/*========== responsive typography  ==========*/
+@media screen and (min-width: 1152px) {
+  :root {
+    --body-font: 'Poppins', sans-serif;
+    --seconf-font: 'Montserrat', sans-serif;
+    --biggest-font-size: 5.5rem;
+    /* 88px */
+    --h1-font-size: 2.5rem;
+    /* 40px */
+    --h2-font-size: 1.5rem;
+    /* 24px */
+    --h3-font-size: 1.25rem;
+    /* 20px */
+    --normal-font-size: 1rem;
+    /* 16px */
+    --small-font-size: .875rem;
+    /* 14px */
+    --smaller-font-size: .813rem;
+    /* 13px */
   }
+}
 
-  /*=============== BASE ===============*/
-  * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
-  html {
-    scroll-behavior: smooth;
-  }
+html {
+  scroll-behavior: smooth;
+}
 
-  body,
-  button,
-  input {
-    font-family: var(--body-font);
-    font-size: var(--normal-font-size);
-    color: var(--text-color);
-  }
+body,
+button,
+input {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+}
 
-  body {
-    background-color: var(--body-color);
-  }
+body {
+  background-color: var(--body-color);
+}
 
-  button,
-  input {
-    outline: none;
-    border: none;
-  }
+button,
+input {
+  outline: none;
+  border: none;
+}
 
-  h1,h2,h3,h4 {
-    color: var(--title-color);
-    font-family: var(--second-font);
-    font-weight: var(--font-semi-bold);
-  }
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-family: var(--second-font);
+  font-weight: var(--font-semi-bold);
+}
 
-  ul {
-    list-style: none;
-  }
+ul {
+  list-style: none;
+}
 
-  a {
-    text-decoration: none;
-  }
+a {
+  text-decoration: none;
+}
 
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
-  /*=============== REUSABLE CSS CLASSES ===============*/
-  .container {
-    max-width: 1120px;
-    margin-inline: 1.5rem;
-  }
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
 
-  .grid {
-    display: grid;
-    gap: 1.5rem;
-  }
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
 
-  .section {
-    padding-block: 5rem 1rem;
-  }
+.section {
+  padding-block: 5rem 1rem;
+}
 
-  .section__title {
-    text-align: center;
-    font-size: var(--h1-font-size);
-    margin-bottom: 1.5rem;
-  }
+.section__title {
+  text-align: center;
+  font-size: var(--h1-font-size);
+  margin-bottom: 1.5rem;
+}
 
-  .main {
-    overflow: hidden; /* for animation scrollReval */
-  }
+.main {
+  overflow: hidden;
+  /* for animation scrollReval */
+}
 
-  /*=============== HEADER & NAV ===============*/
-  .header {
+/*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+}
+
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  color: var(--title-color);
+  font-family: var(--second-font);
+  font-weight: var(--font-semi-bold);
+}
+
+.nav__toggle,
+.nav__close {
+  display: flex;
+  font-size: 1.2rem;
+  color: var(--title-color);
+  cursor: pointer;
+}
+
+/* navigation for mobile devices  */
+@media screen and (max-width: 1023px) {
+  .nav__menu {
     position: fixed;
-    width: 100%;
-    background-color: transparent;
-    top: 0;
+    top: -100%;
     left: 0;
-    z-index: var(--z-fixed);
-  }
-
-  .nav {
-    height: var(--header-height);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .nav__logo {
-    color: var(--title-color);
-    font-family: var(--second-font);
-    font-weight: var(--font-semi-bold);
-  }
-
-  .nav__toggle,
-  .nav__close {
-    display: flex;
-    font-size: 1.2rem;
-    color: var(--title-color);
-    cursor: pointer;
-  }
-
-   /* navigation for mobile devices  */
-   @media screen and (max-width: 1023px) {
-    .nav__menu {
-      position: fixed;
-      top: -100%;
-      left: 0;
-      background-color: hsla(0, 0%, 0%, .3);
-      width: 100%;
-      padding-block: 4rem;
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px); /* for safari */
-      transition: all .4s;
-    }
-   }
-
-   .nav__list {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    row-gap: 2.5rem;
-   }
-
-   .nav__link {
-    color: var(--title-color);
-    font-family: var(--second-font);
-    font-weight: var(--font-medium);
-   }
-
-   .nav__close {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-   }
-
-  /* show menu  */
-  .show-menu {
-    top: 0;
-  }
-
-  /* add blur to header  */
-  .blur-header::after {
-    content: '';
-    position: absolute;
-    width: 1000%;
-    height: 100%;
     background-color: hsla(0, 0%, 0%, .3);
+    width: 100%;
+    padding-block: 4rem;
     backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px); /* for safari */
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-
-  /* active link  */
-
-  /*=============== HOME ===============*/
-  .home {
-    position: relative;
-  }
-
-  .home__bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 750px;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .home__shadow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 800px;
-    background: linear-gradient(180deg,
-    hsla(0, 0%, 0%, 0) 58%,
-    hsl(0, 0%, 0%) 78%);
-  }
-
-  .home__container {
-    position: relative;
-    padding-top: 3rem;
-    row-gap: 3rem;
-  }
-
-  .home__data {
-    text-align: center;
-  }
-
-  .home__subtitle {
-    font-size: var(--h3-font-size);
-    margin-bottom: .5rem;
-  }
-
-  .home__title {
-    font-size: var(--biggest-font-size);
-    margin-bottom: 1rem;
-  }
-
-  .home__description {
-    margin-bottom: 2rem;
-    color: var(--title-color);
-  }
-
-  .home__cards {
-    grid-template-columns: 240px;
-    justify-content: center;
-  }
-
-  .home__card {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .home__card-img {
+    -webkit-backdrop-filter: blur(24px);
+    /* for safari */
     transition: all .4s;
   }
+}
 
-  .home__card-shadow {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: linear-gradient(180deg,
-                hsla(0, 0%, 0%, 0) 50%,
-                hsl(0, 0%, 0%) 125%);
-  }
+.nav__list {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.5rem;
+}
 
-  .home__card-title {
-    position: absolute;
-    left: 1rem;
-    bottom: 1rem;
-    font-size: var(--h3-font-size);
-    z-index: 1;
-  }
+.nav__link {
+  color: var(--title-color);
+  font-family: var(--second-font);
+  font-weight: var(--font-medium);
+}
 
-  .home__card:hover .home__card-img {
-    transform: scale(1.2);
-  }
- 
-  /*=============== BUTTON ===============*/
-  .btn {
-    background-color: hsla(0, 0%, 100%, .2);
-    padding: 1.25rem 1.5rem;
-    color: var(--title-color);
-    display: inline-flex;
-    align-items: center;
-    column-gap: .5rem;
-    font-family: var(--seconf-font);
-    font-weight: var(--font-semi-bold);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px); /* for safari */
-  }
+.nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
 
-  .btn i {
-    font-size: 1.25rem;
-    transition: all .4s;
-    font-weight: initial;
-  }
+/* show menu  */
+.show-menu {
+  top: 0;
+}
 
-  .btn:hover i {
-    transform: translateX(.25rem);
-  }
+/* add blur to header  */
+.blur-header::after {
+  content: '';
+  position: absolute;
+  width: 1000%;
+  height: 100%;
+  background-color: hsla(0, 0%, 0%, .3);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  /* for safari */
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 
-  /*=============== ABOUT ===============*/
+/* active link  */
 
-  /*=============== POPULAR ===============*/
+/*=============== HOME ===============*/
+.home {
+  position: relative;
+}
 
-  /*=============== EXPLORE ===============*/
+.home__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 750px;
+  object-fit: cover;
+  object-position: center;
+}
 
-  /*=============== JOIN ===============*/
+.home__shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 800px;
+  background: linear-gradient(180deg,
+      hsla(0, 0%, 0%, 0) 58%,
+      hsl(0, 0%, 0%) 78%);
+}
 
-  /*=============== FOOTER ===============*/
+.home__container {
+  position: relative;
+  padding-top: 3rem;
+  row-gap: 3rem;
+}
 
-  /*=============== SCROLL BAR ===============*/
+.home__data {
+  text-align: center;
+}
 
-  /*=============== SCROLL UP ===============*/
+.home__subtitle {
+  font-size: var(--h3-font-size);
+  margin-bottom: .5rem;
+}
 
-  /*=============== BREAKPOINTS ===============*/
+.home__title {
+  font-size: var(--biggest-font-size);
+  margin-bottom: 1rem;
+}
+
+.home__description {
+  margin-bottom: 2rem;
+  color: var(--title-color);
+}
+
+.home__cards {
+  grid-template-columns: 240px;
+  justify-content: center;
+}
+
+.home__card {
+  position: relative;
+  overflow: hidden;
+}
+
+.home__card-img {
+  transition: all .4s;
+}
+
+.home__card-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(180deg,
+      hsla(0, 0%, 0%, 0) 50%,
+      hsl(0, 0%, 0%) 125%);
+}
+
+.home__card-title {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  font-size: var(--h3-font-size);
+  z-index: 1;
+}
+
+.home__card:hover .home__card-img {
+  transform: scale(1.2);
+}
+
+/*=============== BUTTON ===============*/
+.btn {
+  background-color: hsla(0, 0%, 100%, .2);
+  padding: 1.25rem 1.5rem;
+  color: var(--title-color);
+  display: inline-flex;
+  align-items: center;
+  column-gap: .5rem;
+  font-family: var(--seconf-font);
+  font-weight: var(--font-semi-bold);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  /* for safari */
+}
+
+.btn i {
+  font-size: 1.25rem;
+  transition: all .4s;
+  font-weight: initial;
+}
+
+.btn:hover i {
+  transform: translateX(.25rem);
+}
+
+/*=============== ABOUT ===============*/
+.about__container {
+  row-gap: 3rem;
+}
+
+.about__data {
+  text-align: center;
+}
+
+.about__description {
+  margin-bottom: 2rem;
+}
+
+.about__image {
+  position: relative;
+  justify-self: center;
+  overflow: hidden;
+}
+
+.about__img {
+  width: 300px;
+  transition: all .4s;
+}
+
+.about__shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,
+      hsla(0, 0%, 0%, 0) 50%,
+      hsl(0, 0%, 0%) 125%);
+}
+
+.about__image:hover .about__img {
+  transform: scale(1.2);
+}
+
+/*=============== POPULAR ===============*/
+
+/*=============== EXPLORE ===============*/
+
+/*=============== JOIN ===============*/
+
+/*=============== FOOTER ===============*/
+
+/*=============== SCROLL BAR ===============*/
+
+/*=============== SCROLL UP ===============*/
+
+/*=============== BREAKPOINTS ===============*/
